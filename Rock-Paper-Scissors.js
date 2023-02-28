@@ -13,7 +13,7 @@ let messageEl = document.getElementById("message-el")
 let yourPoints = document.getElementById("your-points-el")
 let computerPoints = document.getElementById("computer-points-el")
 let winnerEl = document.getElementById("winner-el")
-// let winnerDiv = document.getElementsByClassName(".winner")
+let winnerDiv = document.getElementsById("winner")
 
 function randomItem() {
   return hands[Math.floor(Math.random() * hands.length)]
@@ -24,7 +24,7 @@ function animation() {
   messageEl.style.transition = "1s";
 }
 function submit() {
-  if (count < 10) {
+  if (count < 2) {
     game()
     messageEl.style.opacity = 2;
     messageEl.style.transition = "1s";
@@ -37,25 +37,24 @@ function submit() {
       messageEl.style.transition = "1s";
       setTimeout(animation, 2000);
     }
-}    
-      
 
-    //   if (Number(yourFinalPoint) > Number(computerFinalPoint)) {
-    //     winnerEl.textContent = "You've won the game!"
-        
-    //     winnerEl.style.visibility = "visible"
-    //     // winnerDiv.style.visibility = "visible"
-    //     winnerEl.style.color = "green"
-    //   }
-    //   else if (Number(yourFinalPoint) < Number(computerFinalPoint)) {
-    //     winnerEl.textContent = "You've lost the game."
-    //     winnerEl.style.visibility = "visible"
-    //     // winnerDiv.style.visibility = "visible"
-    //     winnerEl.style.color = "red"
-    //   } else {
-    //     winnerEl.textContent = "Tie"
-    //   }
-    //   console.log(winnerEl.textContent)
+    if (messageEl.textContent === "Game is over" && Number(yourFinalPoint) > Number(computerFinalPoint)) {
+      winnerEl.textContent = "You've won the game!"
+          
+      winnerEl.style.visibility = "visible"
+      winnerDiv.style.visibility = "visible"
+      winnerEl.style.color = "green"
+    }
+    else if (messageEl.textContent === "Game is over" && Number(yourFinalPoint) < Number(computerFinalPoint)) {
+      winnerEl.textContent = "You've lost the game."
+      winnerEl.style.visibility = "visible"
+      winnerDiv.style.visibility = "visible"
+      winnerEl.style.color = "red"
+    } else if(messageEl.textContent === "Game is over" && Number(yourFinalPoint) === Number(computerFinalPoint)){
+      winnerEl.textContent = "Tie"
+    }
+    console.log(winnerEl.textContent)
+}
 
 function game() {
   for (i = 0; i < handsEl.length; i++) {
