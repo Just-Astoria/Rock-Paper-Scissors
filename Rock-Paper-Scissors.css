@@ -76,21 +76,20 @@ body{
 } 
 
 #winner{
-
-  width: 100%;
-  z-index: 3;
+  background-color: rgba(140,140,140,0.8);
   position: absolute;
   left: 0;
   right: 0;
   top: 0;
   bottom: 0;
-  visibility: hidden;
+  opacity: 0;
 }
 
 #winner-el{
-  background-color: rgba(140,140,140,0.8);  
+  font-size: 28px;
+  font-weight: bolder;
   position: fixed;
-  top: 0px;
+  top: 210px;
   left: 35%;
   right: 35%;
 } 

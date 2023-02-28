@@ -13,7 +13,7 @@ let messageEl = document.getElementById("message-el")
 let yourPoints = document.getElementById("your-points-el")
 let computerPoints = document.getElementById("computer-points-el")
 let winnerEl = document.getElementById("winner-el")
-let winnerDiv = document.getElementsById("winner")
+let winnerDiv = document.getElementById("winner")
 
 function randomItem() {
   return hands[Math.floor(Math.random() * hands.length)]
@@ -41,17 +41,22 @@ function submit() {
     if (messageEl.textContent === "Game is over" && Number(yourFinalPoint) > Number(computerFinalPoint)) {
       winnerEl.textContent = "You've won the game!"
           
-      winnerEl.style.visibility = "visible"
-      winnerDiv.style.visibility = "visible"
-      winnerEl.style.color = "green"
+      // winnerEl.style.visibility = "visible"
+      winnerDiv.style.opacity = 2;
+      winnerDiv.style.zIndex = 3;
+      winnerEl.style.color = "#00b600";
     }
     else if (messageEl.textContent === "Game is over" && Number(yourFinalPoint) < Number(computerFinalPoint)) {
       winnerEl.textContent = "You've lost the game."
-      winnerEl.style.visibility = "visible"
-      winnerDiv.style.visibility = "visible"
-      winnerEl.style.color = "red"
+      // winnerEl.style.opacity = 2;
+      winnerDiv.style.opacity = 2;
+      winnerDiv.style.zIndex = 3;
+      winnerEl.style.color = "#ae0202"
     } else if(messageEl.textContent === "Game is over" && Number(yourFinalPoint) === Number(computerFinalPoint)){
       winnerEl.textContent = "Tie"
+      winnerDiv.style.opacity = 2;
+      winnerDiv.style.zIndex = 3;
+      winnerEl.style.color = "rgb(183 158 0)"
     }
     console.log(winnerEl.textContent)
 }
